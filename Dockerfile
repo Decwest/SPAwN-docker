@@ -102,8 +102,15 @@ RUN conda install -c menpo opencv
 RUN conda install -c anaconda scikit-image 
 RUN conda install -c conda-forge tqdm
 RUN conda install -c conda-forge numpy
+RUN conda install h5py
 
 RUN conda init bash
+
+# Download NYUv2 Dataset
+WORKDIR /d02/data/NYU_V2
+RUN wget http://horatio.cs.nyu.edu/mit/silberman/nyu_depth_v2/nyu_depth_v2_labeled.mat
+
+WORKDIR /
 
 CMD ["bash"]
 
