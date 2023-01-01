@@ -1,0 +1,3 @@
+[submodule "spawn"]
+	path = spawn
+	url = https://gitlab.com/UnBVision/spawn.git
