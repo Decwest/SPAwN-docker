@@ -88,11 +88,12 @@ ENV PATH $PATH:/root/anaconda3/bin
 RUN conda create -n torch python=3.8
 SHELL ["conda", "run", "-n", "torch", "/bin/bash", "-c"]
 RUN conda install -c anaconda jupyter
-RUN conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch
+RUN conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvidia
 RUN conda install -c anaconda scikit-image 
 RUN conda install -c conda-forge tqdm
 RUN conda install -c conda-forge tensorboard
 RUN conda install -c anaconda pandas
+RUN conda install h5py
 
 # Environment for Datasets Preparation
 RUN conda create -n cv2 python=3.8
