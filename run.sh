@@ -14,6 +14,7 @@ docker run -it \
     --rm \
     -v "/$(pwd)/entrypoint.sh:/entrypoint.sh" \
     -v "/$(pwd)/spawn:/home/${USER}/spawn" \
+    -v "/$(pwd)/data:/data" \
     -v /etc/group:/etc/group:ro \
     -v /etc/passwd:/etc/passwd:ro \
     -v /etc/localtime:/etc/localtime:ro \

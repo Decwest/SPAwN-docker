@@ -94,6 +94,8 @@ RUN conda install -c conda-forge tqdm
 RUN conda install -c conda-forge tensorboard
 RUN conda install -c anaconda pandas
 RUN conda install h5py
+RUN conda install -c cf-staging libffi=3.3.*
+RUN conda install matplotlib
 
 # Environment for Datasets Preparation
 RUN conda create -n cv2 python=3.8
@@ -103,16 +105,12 @@ RUN conda install -c anaconda scikit-image
 RUN conda install -c conda-forge tqdm
 RUN conda install -c conda-forge numpy
 RUN conda install h5py
+RUN conda install -c cf-staging libffi=3.3.*
 
 RUN conda init bash
 
-# Download NYUv2 Dataset
-WORKDIR /d02/data/NYU_V2
-RUN wget http://horatio.cs.nyu.edu/mit/silberman/nyu_depth_v2/nyu_depth_v2_labeled.mat
-
-WORKDIR /
-
 CMD ["bash"]
+
 
 #######################################################################
 ##                            delete cash                            ##
