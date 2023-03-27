@@ -4,9 +4,12 @@ cd `dirname $0`
 
 # xhost +
 xhost +local:user
+
 docker run -it \
     --privileged \
     --runtime=nvidia \
+    -e NVIDIA_VISIBLE_DEVICES=all \
+    -e NVIDIA_DRIVER_CAPABILITIES=all \
     --env=DISPLAY=$DISPLAY \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     -v "/home/${USER}/.Xauthority:/home/${USER}/.Xauthority" \
